@@ -1,7 +1,7 @@
 library(maps)
 
 #import data from UNHCR
-datAll=read.csv('~/data/unhcr_popstats_export_persons_of_concern_all_data.csv', header = TRUE)
+datAll=read.csv('data/unhcr_popstats_export_persons_of_concern_all_data.csv', header = TRUE)
 
 #basic map
 wrd = map('world', fill=T)
@@ -32,7 +32,7 @@ cleanData = function(df) {
   #fix mapping issues by changing some asylum country names in dataset to match 
   #those in map package's vocabulary.
   #import csv with mappings done by hand.
-  nameUpdates = read.csv('Desktop/mapping_countries.csv', header = TRUE,
+  nameUpdates = read.csv('data/mapping_countries.csv', header = TRUE,
                          stringsAsFactors = FALSE)[,1:2]
   #str(nameUpdates)
   
