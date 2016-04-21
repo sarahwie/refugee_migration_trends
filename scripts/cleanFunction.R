@@ -1,7 +1,7 @@
 library(maps)
 
 #import data from UNHCR
-datAll=read.csv('data/unhcr_popstats_export_persons_of_concern_all_data.csv', header = TRUE)
+datAll=read.csv('./data/unhcr_popstats_export_persons_of_concern_all_data.csv', header = TRUE)
 
 #basic map
 wrd = map('world', fill=T)
@@ -16,7 +16,7 @@ mapChoices = unique(sapply(strsplit(wrd$names, ':', fixed=T), function(x) x[[1]]
 setdiff(unique(datAll$Country.of.asylum.or.residence[]), mapChoices)
 
 #look up missing values from the final mapChoices list with this command
-subset(wrd$names, grepl(paste('China', collapse= "|"), wrd$names))
+#subset(wrd$names, grepl(paste('China', collapse= "|"), wrd$names))
 #map by hand in a csv file
 
 #function definition
@@ -32,7 +32,7 @@ cleanData = function(df) {
   #fix mapping issues by changing some asylum country names in dataset to match 
   #those in map package's vocabulary.
   #import csv with mappings done by hand.
-  nameUpdates = read.csv('data/mapping_countries.csv', header = TRUE,
+  nameUpdates = read.csv('./data/mapping_countries.csv', header = TRUE,
                          stringsAsFactors = FALSE)[,1:2]
   #str(nameUpdates)
   
@@ -58,3 +58,10 @@ setdiff(unique(datCleaned$Country.of.asylum.or.residence[]), mapChoices)
 #check datatypes of columns
 str(datCleaned)
 
+#get unique origins, destinations, and years for inputs in app
+origins = unique(datCleaned$Origin[])
+destinations = unique(datCleaned$Country.of.asylum.or.residence[])
+years = unique(datCleaned$Year[])
+
+#start mapping
+mapChoicesAll = sapply(strsplit(wrd$names, ':', fixed=T), function(x) x[[1]])
