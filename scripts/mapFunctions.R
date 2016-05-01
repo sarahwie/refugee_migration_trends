@@ -41,10 +41,10 @@ getCountryTrends = function(refugeesum) {
   wrd = map('world', fill=T)
   mapChoices = unique(sapply(strsplit(wrd$names, ':', fixed=T), function(x) x[[1]]))
   
-  #if (input$year[1] >= 1995) {
+  if (input$year[1] >= 1995) {
     #replace NAs with 0s
     refugeesum = ifelse(is.na(refugeesum), 0, refugeesum)
-  #}
+  }
   #else don't replace them
   
   #format into proper dataframe

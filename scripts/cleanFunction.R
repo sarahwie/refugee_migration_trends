@@ -25,9 +25,9 @@ cleanData = function(df) {
   df_clean = df[, c("Year", "Country.of.asylum.or.residence", "Origin", "Refugees")]
   
   #Convert datatypes of columns away from factors
-  df_clean$Country.of.asylum.or.residence = as.character(df$Country.of.asylum.or.residence)
-  df_clean$Origin = as.character(df$Origin)
-  df_clean$Refugees = as.numeric(df$Refugees)
+  df_clean$Country.of.asylum.or.residence = as.character(df_clean$Country.of.asylum.or.residence)
+  df_clean$Origin = as.character(df_clean$Origin)
+  df_clean$Refugees = as.numeric(levels(df_clean$Refugees))[df_clean$Refugees]
   
   #fix mapping issues by changing some asylum country names in dataset to match 
   #those in map package's vocabulary.
