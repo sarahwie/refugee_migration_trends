@@ -22,8 +22,13 @@ mapFunctions.R --> functions that are called by server.R in order to create the 
 cleanData.Rmd --> This is an R Markdown file which explains in more detail what the cleanFunction.R code does. It is the same code so you do not need to run it twice.
 
 The packages which must be installed to run this code (and the versions used):
+
 sp (Version 1.1-1)
+
 maps (3.1.0)
+
 maptools (0.8-39)
+
 shiny (0.13.1)
+
 reshape (0.8.5)
