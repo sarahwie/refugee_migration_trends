@@ -36,12 +36,12 @@ getCountryProps = function(refugeesum) {
   return(props)
 }
 
-getCountryTrends = function(refugeesum) {
+getCountryTrends = function(refugeesum, inputYr) {
   
   wrd = map('world', fill=T)
   mapChoices = unique(sapply(strsplit(wrd$names, ':', fixed=T), function(x) x[[1]]))
   
-  if (input$year[1] >= 1995) {
+  if (inputYr >= 1995) {
     #replace NAs with 0s
     refugeesum = ifelse(is.na(refugeesum), 0, refugeesum)
   }

@@ -26,7 +26,7 @@ shinyServer(function(input,output){
     
     #call function
     counts_by_country = getCountryCounts(refugeesum)
-    
+
     spdf = SpatialPolygonsDataFrame(wrd_sp, counts_by_country)
     spplot(spdf, 'refugeesumOrdered')
   })
@@ -66,7 +66,7 @@ shinyServer(function(input,output){
       need(isTRUE(input$year[1] != input$year[2]), "Please select a range of years.")
     )
     
-    refugeesumDF = getCountryTrends(refugeesum)
+    refugeesumDF = getCountryTrends(refugeesum,input$year[1])
     
     countries = rownames(refugeesum)
     
