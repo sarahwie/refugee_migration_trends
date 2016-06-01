@@ -7,7 +7,7 @@ shinyUI(fluidPage(
   sidebarPanel(width = 4,
     selectInput(inputId = "country",
               label = "Choose an origin country.",
-              origins), 
+              sort(origins)), 
     sliderInput(inputId = "year", label = "Choose year(s) of migration.", min = min(years), max = max(years), value = c(min(years), max(years)), step = 1, sep=""),
     helpText("Data taken from the UNHCR Persons of Concern dataset. 
              See github.com/sarahwie/refugee_migration_trends", "for more info."),

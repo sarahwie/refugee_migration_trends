@@ -24,6 +24,8 @@ cleanData = function(df) {
   
   df_clean = df[, c("Year", "Country.of.asylum.or.residence", "Origin", "Refugees")]
   
+  df_clean = as.data.frame(sapply(df_clean,sub,pattern='\\*',replacement=sample(1:4, 1, replace=T)))
+  
   #Convert datatypes of columns away from factors
   df_clean$Country.of.asylum.or.residence = as.character(df_clean$Country.of.asylum.or.residence)
   df_clean$Origin = as.character(df_clean$Origin)
@@ -45,7 +47,7 @@ cleanData = function(df) {
 }
 
 #call function
-datCleaned = cleanData(datAll)
+datCleaned=cleanData(datAll)
 
 #Check that conversion process worked- should be none (old name)
 datCleaned[datCleaned$Country.of.asylum.or.residence == 'United Rep. of Tanzania',]
