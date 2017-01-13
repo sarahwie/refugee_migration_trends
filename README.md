@@ -1,7 +1,7 @@
 # refugee_migration_trends
 Repository for final project for Quantitative Methods course at the College of Charleston.
 
-The app developed by this code is located at https://sarahwiegreffe.shinyapps.io/quant-methods-final-project/.
+The app developed by this code is located at http://uniola.biology.cofc.edu:3232/refugee_migration_trends/.
 
 This code generates a local RShiny app that will display a heatmap of refugee migration patterns, 
 specifically a trendmap of migration from a user-selected country of origin to all possible destination countries. 
